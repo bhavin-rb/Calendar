@@ -1,0 +1,237 @@
+:root{
+  --font-color:#f8ee00;
+  --day-date-bg:#291772;
+  --gradient-color1:rgba(0, 244, 156, 1);
+  --gradient-color2:rgba(0,212,255,54);
+  --gradient-color3:rgba(0, 140, 219, 1);
+  --day-date-fsize:1.875rem;
+  --date-span-fsize:3.75rem;
+}
+
+body {
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(to right, var(--gradient-color1) 25%, var(--gradient-color2) 65%, var(--gradient-color3) 100%);
+  /*Safari 5.1-6*/
+  background: -o-linear-gradient(to right, var(--gradient-color1) 25%, var(--gradient-color2) 65%, var(--gradient-color3) 100%);
+  /*Opera 11.1-12*/
+  background: -moz-linear-gradient(to right, var(--gradient-color1) 25%, var(--gradient-color2) 65%, var(--gradient-color3) 100%);
+  /*Fx 3.6-15*/
+  background: linear-gradient(to right, var(--gradient-color1) 25%, var(--gradient-color2) 65%, var(--gradient-color3) 100%);
+  /*Standard*/
+  /*color: #324376;*/
+  font-family: 'Comfortaa', cursive, sans-serif;
+}
+/*Main Container*/
+.container {
+  position: relative;
+  height: 200px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 10% 0 0 0;
+  margin: 0;
+}
+
+.container .heading {
+  position: absolute;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  top: 0;
+  color:#291772;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  text-shadow: 0 1px 0 var(--font-color), 0 2px 0 var(--font-color), 0 3px 0 #bbb, 0 4px 0 var(--font-color), 0 5px 0 var(--font-color), 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+}
+
+.container .heading h1 {
+  font-family: 'Comfortaa', cursive,sans-serif;
+  font-weight: 700;
+}
+
+/*Day and Date DIV background color and border*/
+#day,
+#date {
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  border: 10px solid var(--font-color);
+  -webkit-box-shadow: 2px 2px 2px #f46600, -2px 2px 2px #f46600, -2px -2px 2px #f46600, 2px -2px 2px #f46600;
+  box-shadow: 2px 2px 2px #f46600, -2px 2px 2px #f46600, -2px -2px 2px #f46600, 2px -2px 2px #f46600;
+  margin-top: 5%;
+}
+
+/*Day of the week*/
+#day {
+  color: var(--font-color);
+  background: var(--day-date-bg);
+  font-size: 1.25rem;
+  font-weight: 900;
+  padding-top: 80px;
+}
+
+#day span {
+  display: block;
+  font-weight: 700;
+  font-size: var(--day-date-fsize);
+  line-height: 55px;
+}
+
+/*Date of the Month*/
+#date {
+  color: var(--font-color);
+  padding-top: 60px;
+  background: var(--day-date-bg);
+  font-size: var(--day-date-fsize);
+  font-weight: 900;
+}
+
+#date span {
+  display: block;
+  font-family: 'Raleway',sans-serif;
+  font-weight: 700;
+  font-size: var(--date-span-fsize);
+  line-height: 45px;
+  padding-bottom: 15px;
+}
+
+/*Background Change Button*/
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  visibility: hidden;
+  display: none;
+}
+
+.check {
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 30px;
+  background: #000;
+  cursor: pointer;
+  border-radius: 30px;
+  overflow: hidden;
+  -webkit-transition: ease-in 0.5s;
+  -o-transition: ease-in 0.5s;
+  transition: ease-in 0.5s;
+}
+
+input[type="checkbox"]:checked~.check {
+  background: #00f49c;
+  -webkit-box-shadow: 0 0 0 2300px #000;
+  box-shadow: 0 0 0 2300px #000;
+}
+
+.check:before {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: 5px;
+  background: #00f49c;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+input[type="checkbox"]:checked~.check:before {
+  -webkit-transform: translateX(-50px);
+  -ms-transform: translateX(-50px);
+  transform: translateX(-50px);
+}
+
+.check:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: 4px;
+  background: #000;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform: translateX(50px);
+  -ms-transform: translateX(50px);
+  transform: translateX(50px);
+}
+
+input[type="checkbox"]:checked~.check:after {
+  -webkit-transform: translateX(0px);
+  -ms-transform: translateX(0px);
+  transform: translateX(0px);
+}
+
+/*Github icon*/
+.icon {
+  position: absolute;
+  right: 10px;
+  z-index: 100;
+}
+.icon-ln{
+  position: absolute;
+  top:60px;
+  right: 10px;
+  z-index: 100;
+}
+
+.fa {
+  color: white;
+}
+
+/*Mobile Responsive*/
+@media screen and (min-width:250px) and (max-width:650px)
+{
+  h1{
+    font-size:2rem;
+    margin-bottom:150px;
+  }
+  #day, #date{
+    height:200px;
+    width:200px;
+    margin-top:50px;
+  }
+  #day{
+    font-size:1rem;
+    padding-top:60px;
+  }
+  #date{
+    font-size:1.25rem;
+    padding-top:40px;
+  }
+}
+
+@media screen and (min-width:651px) and (max-width:950px){
+  h1{
+    font-size:2.5rem;
+    
+  }
+  #day, #date{
+    height:200px;
+    width:200px;
+    margin-top:30px;
+  }
+  #day{
+    font-size:1rem;
+    padding-top:60px;
+  }
+  #date{
+    font-size:1.25rem;
+    padding-top:40px;
+  }
+}
